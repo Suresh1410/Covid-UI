@@ -1,0 +1,130 @@
+<div class="col-12 row ">
+    <div class="col-1"></div>
+    <div class="col-12 row pt-5 m-auto" style="max-width: 95%">
+        <div class="col-12">
+            <form [formGroup]="postForm" class="col-12">
+                <div class="col-12 row bg-white p-4 shadow shadow-md rounded">
+                    <p class="font-weight-bold heading col-12 pl-0 ml-3 boldfont">Add Post</p>
+
+                    <div class="form-group col-12 row">
+                        <div class="form-group col-3">
+                            <label for="type"  >Type</label>
+                            <select name="type" id="type" class="form-control" formControlName="type">
+                                <option selected value="" disabled>Select</option>
+                                <option selected value="food">Food</option>
+                                <option selected value="clothes">Clothes</option>
+                                <option selected value="other">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="subType"  >Sub Type</label>
+                            <input type="text" name="subType" id="subType" class="form-control"
+                                formControlName="subType">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="quantity"  >Quantity</label>
+                            <input type="text" name="quantity" id="quantity" class="form-control"  (keypress)="restrictAlphabets($event)"
+                                formControlName="quantity">
+                        </div>
+                    </div>
+                    <div class="form-group col-12 row">
+
+                        <div class="form-group col-3">
+                            <label for="requestDate"  >Request Start Date</label>
+                            <div class="input-group">
+                                <input name="Request Date" id="requestDate" class="form-control"
+                                    formControlName="requestDate" placeholder="yyyy-mm-dd" ngbDatepicker
+                                    #requestDate="ngbDatepicker" (keyup)="dateFormatter($event)"
+                                    (keypress)="restrictAlphabets($event)" maxlength="10">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" (click)="requestDate.toggle()"
+                                        type="button">
+                                        <i class="fa fa-calendar"
+                                            style="width: 0.85 rem; height: 0.5rem; cursor: pointer;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="requestEndDate"  >Request End Date</label>
+                            <div class="input-group">
+                                <input name="Request End Date" id="requestEndDate" class="form-control"
+                                    formControlName="requestEndDate" placeholder="yyyy-mm-dd" ngbDatepicker
+                                    #requestEndDate="ngbDatepicker" (keyup)="dateFormatter($event)"
+                                    (keypress)="restrictAlphabets($event)" maxlength="10">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" (click)="requestEndDate.toggle()"
+                                        type="button">
+                                        <i class="fa fa-calendar"
+                                            style="width: 0.85 rem; height: 0.5rem; cursor: pointer;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 row bg-white p-4 mt-2 shadow shadow-md rounded">
+                    <p class="font-weight-bold heading col-12 pl-0 ml-3 boldfont">Contact Details</p>
+                    <div class="form-group col-12 row">
+                        <div class="form-group col-4">
+                            <label for="address1">Address line 1</label>
+                            <input type="text" name="address1" id="address1" class="form-control"
+                                formControlName="address1">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="address2">Address line 2</label>
+                            <input type="text" name="address2" id="address2" class="form-control"
+                                formControlName="address2">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="address3">Address line 3</label>
+                            <input type="text" name="address3" id="address3" class="form-control"
+                                formControlName="address3">
+                        </div>
+                    </div>
+                    <div class="form-group col-12 row">
+                        <div class="form-group col-3">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" class="form-control"
+                                formControlName="city">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state" class="form-control"
+                                formControlName="state">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="country">Country</label>
+                            <input type="text" name="country" id="country" class="form-control"
+                                formControlName="country">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="pinCode">Pin Code</label>
+                            <input type="text" name="pinCode" id="pinCode" class="form-control"  (keypress)="restrictAlphabets($event)"
+                                formControlName="pinCode" maxlength="6">
+                        </div>
+                    </div>
+                    <div class="form-group col-12 row">
+                        <div class="form-group col-3">
+                            <label for="phone">Mobile Number</label>
+                            <input type="text" name="phone" id="phone" class="form-control"
+                                formControlName="phone">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" class="form-control"
+                                formControlName="email">
+                        </div>
+                        
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary" style="margin-top: 10px;" (click)="onSubmit()">Add Post</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
