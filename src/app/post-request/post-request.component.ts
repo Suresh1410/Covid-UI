@@ -26,6 +26,8 @@ export class PostRequestComponent implements OnInit {
       type: [""],
       subType:[""],
       quantity: [""],
+      description: [""],
+      useExistingAddress: ["yes"],
       requestDate: [""],
       requestEndDate:[""],
       address1: [""],

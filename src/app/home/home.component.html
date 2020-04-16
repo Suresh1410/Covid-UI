@@ -1,0 +1,43 @@
+<div class="col-12 row ">
+        <div class="col-1"></div>
+        <div class="col-12 row pt-5 m-auto" style="max-width: 95%">
+                
+                        <input type="text" name="searchBox" placeholder="search by sub type">
+                        <div class="btn">
+                                <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                
+                <div class="col-12">
+                        <form [formGroup]="homeForm">
+                                <div formArrayName="postDetails">
+                                        <div *ngFor="let post of postDetails.controls; index as idx">
+                                                <div [formGroupName]="idx">
+                                                        <div class="p-2"></div>
+                                                        <div class="col-12 row bg-white p-4 shadow shadow-md rounded">
+                                                                <div class="col-6 "><label class="text-bold" >Type :</label>
+                                                                {{post.controls.type.value}}</div>
+                                                                <div class="col-6 "><label class="text-bold" >Sub Type : </label>
+                                                                {{post.controls.subType.value}}</div>
+                                                                <div class="col-6 "><label class="text-bold" >Quantity : </label>
+                                                                {{post.controls.quantity.value}}</div>
+                                                                <div class="col-6 "><label class="text-bold">End Date : </label>
+                                                                        {{post.controls.endDate.value}}</div>
+                                                                <div class="col-12 "><label class="text-bold">Description : </label>
+                                                                {{post.controls.description.value}}</div>
+                                                                <div class="col-12 "><label class="text-bold">Address : </label>
+                                                                {{post.controls.address.value}}</div>
+                                                                <div class="col-12 "><div class="form-group col-12">
+                                                                        <button class="btn btn-primary"
+                                                                                style="margin-top: 10px;">Donate</button>
+                                                                </div></div>
+
+                                                        </div>
+
+                                                </div>
+
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</div>

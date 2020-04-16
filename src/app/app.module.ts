@@ -8,14 +8,15 @@ import { PostRequestComponent } from './post-request/post-request.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponentComponent,
     PostRequestComponent,
-    HeaderComponent
-    
+    HeaderComponent,
+    HomeComponent  
   ],
   imports: [
     BrowserModule,
