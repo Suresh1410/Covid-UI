@@ -1,0 +1,61 @@
+<div class="wrapper bg-light">
+	<nav id="sidebar" class="sidebar">
+		<div class="sidebar-content">
+			<ul class="sidebar-nav">
+				<li  class="sidebar-item active">
+					<a class="sidebar-link" href="/home" routerLink="home" routerLinkActive="custom-active-bg">
+						<i class="align-middle mr-2 fa fa-home"></i> <span class="align-middle">Home</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="/request" routerLink="request" routerLinkActive="custom-active-bg">
+						<i class="align-middle mr-2 fa fa-gift"></i> <span class="align-middle">Request For Donation</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="/myDonations" routerLink="home" routerLinkActive="custom-active-bg">
+						<i class="align-middle mr-2 fa fa-gift"></i> <span class="align-middle">My Donations</span>
+					</a>
+				</li>
+				
+			</ul>
+		</div>
+	</nav>
+	<div id="header" class="main">
+		<nav class="navbar navbar-expand navbar-theme">
+			<a class="d-flex hamburger">
+				<i class="fa fa-bars align-self-center" style="color:white;" (click)="openCloseNav()"></i>
+			</a>
+			<!-- <img class="cts-logo" src="./assets/bg/cogzlogo-new.svg" /> -->
+			<p class="seperator text-green"> | </p>
+			<!-- <div class="navbar-collapse collapse" style="display: block !important;">
+				<p class="header-title text-green"> Discrepancy Analysis & Management</p>
+			</div> -->
+			<!-- <div class="text-shadow " style="color: white;text-align:center;
+							margin-top: 7px;">
+				<div class="font-weight-bold"><i class="fa fa-user" aria-hidden="true"></i> {{commonService.user_Name}}
+				</div>
+				<small>{{commonService.user_Role}}</small>
+			</div> -->
+
+		</nav>
+
+		<main class="content bg-light" id="main">
+			<div class="container-fluid" id="container">
+				<router-outlet></router-outlet>
+			</div>
+		</main>
+		<footer class="footer fixed">
+			<div class="container-fluid">
+				<div class="row text-muted">
+					<div class="col-4  m-auto">
+						<p class="mb-0">
+							&copy; 2019 Cognizant. All Rights Reserved
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+</div>

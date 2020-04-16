@@ -7,12 +7,14 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import { PostRequestComponent } from './post-request/post-request.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponentComponent,
-    PostRequestComponent
+    PostRequestComponent,
+    HeaderComponent
     
   ],
   imports: [
