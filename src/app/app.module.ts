@@ -9,6 +9,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponentComponent } from './register-component/register-component.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponentComponent,
     PostRequestComponent,
     HeaderComponent,
-    HomeComponent  
+    HomeComponent,
+    RegisterComponentComponent
   ],
   imports: [
     BrowserModule,
