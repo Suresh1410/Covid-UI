@@ -1,43 +1,289 @@
 <div class="col-12 row ">
         <div class="col-1"></div>
-        <div class="col-12 row pt-5 m-auto" style="max-width: 95%">
-                
-                        <input type="text" name="searchBox" placeholder="search by sub type">
-                        <div class="btn">
-                                <a href="#"><i class="fa fa-search"></i></a>
-                        </div>
-                
+        <div class="col-12 row pt-5 m-auto" style="max-width: 95%;background-image: url(assets/bg/covid.jpg);">
                 <div class="col-12">
-                        <form [formGroup]="homeForm">
-                                <div formArrayName="postDetails">
-                                        <div *ngFor="let post of postDetails.controls; index as idx">
-                                                <div [formGroupName]="idx">
-                                                        <div class="p-2"></div>
-                                                        <div class="col-12 row bg-white p-4 shadow shadow-md rounded">
-                                                                <div class="col-6 "><label class="text-bold" >Type :</label>
-                                                                {{post.controls.type.value}}</div>
-                                                                <div class="col-6 "><label class="text-bold" >Sub Type : </label>
-                                                                {{post.controls.subType.value}}</div>
-                                                                <div class="col-6 "><label class="text-bold" >Quantity : </label>
-                                                                {{post.controls.quantity.value}}</div>
-                                                                <div class="col-6 "><label class="text-bold">End Date : </label>
-                                                                        {{post.controls.endDate.value}}</div>
-                                                                <div class="col-12 "><label class="text-bold">Description : </label>
-                                                                {{post.controls.description.value}}</div>
-                                                                <div class="col-12 "><label class="text-bold">Address : </label>
-                                                                {{post.controls.address.value}}</div>
-                                                                <div class="col-12 "><div class="form-group col-12">
-                                                                        <button class="btn btn-primary"
-                                                                                style="margin-top: 10px;">Donate</button>
-                                                                </div></div>
+                        <div class="card-deck">
+                                <div class="card card-block">
+                                        <img class="card-img-top" src="./assets/bg/foods.png" />
+                                        <div class="card-body">
+                                                <h5 class="card-title">Food</h5>
+                                                <form class="search-form mb-3">
+                                                        <input type="text" placeholder="Search by name">
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
+                                                <div class=" bg-white shadow shadow-md rounded mb-1">
+                                                        <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                                <div class="case-text">
+                                                                                        <h6>
+                                                                                                Help Us For Fruits
+                                                                                        </h6>
 
-                                                        </div>
+                                                                                </div>
+                                                                        </mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <div class="name-design">
+                                                                        <span>Donald C. Snead</span>
+                                                                </div>
+                                                                <div
+                                                                        class="single-skill d-flex align-items-center justify-content-between">
+                                                                        <div class="bar-title  mb-15">
+                                                                                <h5><i class="fa fa-gift"></i>5<span class="raise m-1">Raise
+                                                                                                <br> of</span> <span
+                                                                                                class="used-count m-1"><i class="fa fa-gift"></i>10</span>
+                                                                                </h5>
+                                                                        </div>
+                                                                        <circle-progress [percent]="50" [radius]="50"
+                                                                                [outerStrokeWidth]="8"
+                                                                                [innerStrokeWidth]="5"
+                                                                                [outerStrokeColor]="'#78C000'"
+                                                                                [innerStrokeColor]="'#C7E596'"
+                                                                                [animation]="true"
+                                                                                [animationDuration]="300">
+                                                                        </circle-progress>
+                                                                </div>
+                                                                <div class="case-info">
+                                                                        <p>Pleasure itself, because it is pleasure but because those know pursue</p>
+                                                                        <div class="b-button">
+                                                                            <a href="#"><span>Donate Now</span> <i class="fa fa-long-arrow-right ml-1"></i></a>
+                                                                        </div>
+                                                                    </div>
 
+                                                        </mat-expansion-panel>
+                                                </div>
+                                                <div class=" bg-white shadow shadow-md rounded mb-1">
+                                                        <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                                Post 2
+                                                                        </mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <ul class="list-group">
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-briefcase"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Company</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-user"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Role</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-map-marker"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Location</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-clock-o"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Duration</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-inr"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Cost</li>
+                                                                </ul>
+                                                                <div class="card-footer">
+                                                                        <button type="button" class="btn"
+                                                                                id="left-panel-link">Donate</button>
+                                                                </div>
+
+                                                        </mat-expansion-panel>
+                                                </div>
+                                        </div>
+
+                                </div>
+                                <div class="card">
+                                        <img class="card-img-top" src="./assets/bg/clothes.jpg" />
+                                        <div class="card-body">
+                                                <h5 class="card-title">Clothes</h5>
+                                                <form class="search-form mb-3">
+                                                        <input type="text" placeholder="Search by name">
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
+                                                <div class=" bg-white shadow shadow-md rounded mb-1">
+                                                        <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                                <div class="case-text">
+                                                                                        <h6>
+                                                                                                Help Us For Food
+                                                                                        </h6>
+
+                                                                                </div>
+                                                                        </mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <div class="name-design">
+                                                                        <span>Donald C. Snead</span>
+                                                                </div>
+                                                                <div
+                                                                        class="single-skill d-flex align-items-center justify-content-between">
+                                                                        <div class="bar-title  mb-15">
+                                                                                <h5><i class="fa fa-gift"></i>5<span class="raise m-1">Raise
+                                                                                                <br> of</span> <span
+                                                                                                class="used-count m-1"><i class="fa fa-gift"></i>10</span>
+                                                                                </h5>
+                                                                        </div>
+                                                                        <circle-progress [percent]="50" [radius]="50"
+                                                                                [outerStrokeWidth]="8"
+                                                                                [innerStrokeWidth]="5"
+                                                                                [outerStrokeColor]="'#78C000'"
+                                                                                [innerStrokeColor]="'#C7E596'"
+                                                                                [animation]="true"
+                                                                                [animationDuration]="300">
+                                                                        </circle-progress>
+                                                                </div>
+                                                                <div class="case-info">
+                                                                        <p>Pleasure itself, because it is pleasure but because those know pursue</p>
+                                                                        <div class="b-button">
+                                                                            <a href="#"><span>Donate Now</span> <i class="fa fa-long-arrow-right ml-1"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                        </mat-expansion-panel>
+                                                </div>
+                                                <div class=" bg-white shadow shadow-md rounded mb-1">
+                                                        <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                                <div class="case-text">
+                                                                                        <h6>
+                                                                                                Help Us For Food
+                                                                                        </h6>
+
+                                                                                </div>
+                                                                        </mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <div class="name-design">
+                                                                        <span>Donald C. Snead</span>
+                                                                </div>
+                                                                <div
+                                                                        class="single-skill d-flex align-items-center justify-content-between">
+                                                                        <div class="bar-title  mb-15">
+                                                                                <h5><i class="fa fa-gift"></i>5<span class="raise m-1">Raise
+                                                                                                <br> of</span> <span
+                                                                                                class="used-count m-1"><i class="fa fa-gift"></i>10</span>
+                                                                                </h5>
+                                                                        </div>
+                                                                        <circle-progress [percent]="50" [radius]="50"
+                                                                                [outerStrokeWidth]="8"
+                                                                                [innerStrokeWidth]="5"
+                                                                                [outerStrokeColor]="'#78C000'"
+                                                                                [innerStrokeColor]="'#C7E596'"
+                                                                                [animation]="true"
+                                                                                [animationDuration]="300">
+                                                                        </circle-progress>
+                                                                </div>
+                                                                <div class="case-info">
+                                                                        <p>Pleasure itself, because it is pleasure but because those know pursue</p>
+                                                                        <div class="b-button">
+                                                                            <a href="#"><span>Donate Now</span> <i class="fa fa-long-arrow-right ml-1"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                        </mat-expansion-panel>
                                                 </div>
 
                                         </div>
                                 </div>
-                        </form>
+                                <div class="card">
+                                        <img class="card-img-top" src="./assets/bg/others.jpg" />
+                                        <div class="card-body">
+                                                <h5 class="card-title">Others</h5>
+                                                <form class="search-form mb-3">
+                                                        <input type="text" placeholder="Search by name">
+                                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                                    </form>
+                                                <div class=" bg-white shadow shadow-md rounded mb-1">
+                                                        <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                                Post 1
+                                                                        </mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <ul class="list-group">
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-briefcase"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Company</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-user"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Role</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-map-marker"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Location</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-clock-o"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Duration</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-inr"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Cost</li>
+                                                                </ul>
+                                                                <div class="card-footer">
+                                                                        <button type="button" class="btn"
+                                                                                id="left-panel-link">Donate</button>
+                                                                </div>
+
+                                                        </mat-expansion-panel>
+                                                </div>
+                                                <div class=" bg-white shadow shadow-md rounded mb-1">
+                                                        <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                                Post 2
+                                                                        </mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <ul class="list-group">
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-briefcase"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Company</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-user"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Role</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-map-marker"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Location</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-clock-o"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Duration</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-inr"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Cost</li>
+                                                                </ul>
+                                                                <div class="card-footer">
+                                                                        <button type="button" class="btn"
+                                                                                id="left-panel-link">Donate</button>
+                                                                </div>
+
+                                                        </mat-expansion-panel>
+                                                </div>
+
+                                        </div>
+
+                                </div>
+                        </div>
                 </div>
         </div>
 </div>

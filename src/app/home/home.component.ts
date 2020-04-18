@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormArray, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 
@@ -10,7 +10,6 @@ import { FormArray, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   homeForm: any;
-
   constructor(private fb:FormBuilder){
 
   }
