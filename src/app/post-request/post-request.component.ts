@@ -1,62 +1,72 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-post-request',
   templateUrl: './post-request.component.html',
   styleUrls: ['./post-request.component.css']
 })
-export class PostRequestComponent implements OnInit {
+export class PostRequestComponent  implements OnInit {
+  isVertical = false;
 
-  postForm: FormGroup;
-  @ViewChild('requestDate', { static: false }) requestDate: NgbDatepicker;
-  @ViewChild('requestEndDate', { static: false }) requestEndDate: NgbDatepicker;
-  constructor(
-    private formBuilder: FormBuilder
-  ) { }
+  @HostListener('window:resize') onWindowResize() {
 
-  ngOnInit(): void {
-    this.createForm();
+    if (window.innerWidth <= 768) {
+      this.isVertical = true;
+    } else {
+      this.isVertical = false;
+    }
   }
 
-  createForm(){
-    this.postForm = this.formBuilder.group({
-      
-      type: [""],
-      subType:[""],
-      quantity: [""],
-      description: [""],
-      useExistingAddress: ["yes"],
-      requestDate: [""],
-      requestEndDate:[""],
-      address1: [""],
-      address2: [""],
-      address3: [""],
-      city: [""],
-      state: [""],
-      country:[""],
-      pinCode: [""],
-      phone: [""],
-      email: [""]
+requirementDetails: FormGroup;
+  addressDetails: FormGroup;
+  color: ThemePalette = 'accent';
+  checked = false;
+  disabled = false;
+
+  constructor(private _formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.requirementDetails = this._formBuilder.group({
+      type: ['', Validators.required],
+      subType:['', Validators.required],
+      quantity:['', Validators.required],
+      description:['', Validators.required],
+      requestDate:['', Validators.required],
+      endDate:['', Validators.required],
     });
-  }
-
-  onSubmit(){
-    console.log(this.postForm.getRawValue());
+    this.addressDetails = this._formBuilder.group({
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      country:['', Validators.required],
+      pinCode: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
+      useExistingAddress :[false]
+    });
   }
 
   dateFormatter(event) {
     if (event.target.value.length === 4 || event.target.value.length === 7) {
         if (event.keycode !== 8) {
-            event.target.value += "-";
+            event.target.value += "/";
         }
     }
 }
 
-restrictAlphabets(event) {
-  let pattern = /^[0-9]+$/;
+restrictAlphabetsAndSlash(event) {
+  let pattern = /^[0-9//]+$/;
   return pattern.test(event.key);
+}
+onSubmit(){
+
 }
 
 }
+
+
+  
+

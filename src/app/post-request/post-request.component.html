@@ -2,146 +2,122 @@
     <div class="col-1"></div>
     <div class="col-12 row pt-5 m-auto" style="max-width: 95%">
         <div class="col-12">
-            <form [formGroup]="postForm" class="col-12">
-                <div class="col-12 row bg-white p-4 shadow shadow-md rounded">
-                    <p class="font-weight-bold heading col-12 pl-0 ml-3 boldfont">Add Post</p>
-
-                    <div class="form-group col-12 row">
-                        <div class="form-group col-3">
-                            <label for="type"  >Type</label>
-                            <select name="type" id="type" class="form-control" formControlName="type">
-                                <option selected value="" disabled>Select</option>
-                                <option selected value="food">Food</option>
-                                <option selected value="clothes">Clothes</option>
-                                <option selected value="other">Others</option>
-                            </select>
+            <mat-vertical-stepper #stepper >
+                <mat-step [stepControl]="requirementDetails">
+                    <form [formGroup]="requirementDetails">
+                        <ng-template matStepLabel>Fill out your request details</ng-template>
+                        <mat-form-field>
+                            <mat-label>Type</mat-label>
+                            <mat-select placeholder="select" formControlName="type" required>
+                                <mat-option selected value="food">Food</mat-option>
+                                <mat-option selected value="clothes">Clothes</mat-option>
+                                <mat-option selected value="other">Others</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="m-3">
+                            <mat-label>Sub Type</mat-label>
+                            <input matInput placeholder="Ex. milk" formControlName="subType" required>
+                        </mat-form-field>
+                        <mat-form-field class="m-3">
+                            <mat-label>Start Date</mat-label>
+                            <input matInput [matDatepicker]="picker1" formControlName="requestDate"
+                                placeholder="mm/dd/yyyy format" required (keypress)="restrictAlphabetsAndSlash($event)">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="m-3">
+                            <mat-label>End Date</mat-label>
+                            <input matInput [matDatepicker]="picker2" formControlName="endDate"
+                                placeholder="mm/dd/yyyy format" required (keypress)="restrictAlphabetsAndSlash($event)">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="extra-width">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput placeholder="Ex. I needs 5 ltrs of milk.." formControlName="description"
+                                required></textarea>
+                        </mat-form-field>
+                        <div>
+                            <button mat-mini-fab color="accent" matStepperNext>Next</button>
                         </div>
-                        <div class="form-group col-3">
-                            <label for="subType"  >Sub Type</label>
-                            <input type="text" name="subType" id="subType" class="form-control"
-                                formControlName="subType">
-                        </div>
-                        <div class="form-group col-3">
-                            <label for="quantity"  >Quantity</label>
-                            <input type="text" name="quantity" id="quantity" class="form-control"  (keypress)="restrictAlphabets($event)"
-                                formControlName="quantity">
-                        </div>
-                    </div>
-                    <div class="form-group col-12 row">
-                        <div class="form-group col-12">
-                        <label for="description"  >Description</label>
-                        <textarea name="description" id="description" class="form-control" 
-                        formControlName="description"></textarea>
-                    </div>
-                    </div>
-                    <div class="form-group col-12 row">
-
-                        <div class="form-group col-3">
-                            <label for="requestDate"  >Request Start Date</label>
-                            <div class="input-group">
-                                <input name="Request Date" id="requestDate" class="form-control"
-                                    formControlName="requestDate" placeholder="yyyy-mm-dd" ngbDatepicker
-                                    #requestDate="ngbDatepicker" (keyup)="dateFormatter($event)"
-                                    (keypress)="restrictAlphabets($event)" maxlength="10">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" (click)="requestDate.toggle()"
-                                        type="button">
-                                        <i class="fa fa-calendar"
-                                            style="width: 0.85 rem; height: 0.5rem; cursor: pointer;"></i>
-                                    </button>
-                                </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="addressDetails">
+                    <form [formGroup]="addressDetails">
+                        <ng-template matStepLabel>Fill out your address</ng-template>
+                        <div class="form-group col-12 row">
+                            <div class="form-group col-12">
+                                <label for="description">Do you want to use existing address? </label>
+                                <mat-slide-toggle class="ml-5" formControlName="useExistingAddress"
+                                    class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+                                </mat-slide-toggle>
                             </div>
                         </div>
-                        <div class="form-group col-3">
-                            <label for="requestEndDate"  >Request End Date</label>
-                            <div class="input-group">
-                                <input name="Request End Date" id="requestEndDate" class="form-control"
-                                    formControlName="requestEndDate" placeholder="yyyy-mm-dd" ngbDatepicker
-                                    #requestEndDate="ngbDatepicker" (keyup)="dateFormatter($event)"
-                                    (keypress)="restrictAlphabets($event)" maxlength="10">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" (click)="requestEndDate.toggle()"
-                                        type="button">
-                                        <i class="fa fa-calendar"
-                                            style="width: 0.85 rem; height: 0.5rem; cursor: pointer;"></i>
-                                    </button>
-                                </div>
+                        <div class="form-group col-12 row" *ngIf="!addressDetails.controls.useExistingAddress.value">
+                            <div class="form-group col-6">
+                                <mat-form-field class="extra-width-double">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput placeholder="Ex.  Netaji Subhash Marg, Lal Qila..."
+                                        formControlName="address" required></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-3">
+                                <mat-form-field>
+                                    <mat-label>City</mat-label>
+                                    <input matInput formControlName="city" placeholder="Ex. New Delhi" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-3">
+                                <mat-form-field>
+                                    <mat-label>State</mat-label>
+                                    <input matInput formControlName="state" placeholder="Ex. New Delhi" required>
+                                </mat-form-field>
                             </div>
                         </div>
+                            <div class="form-group col-12 row"
+                                *ngIf="!addressDetails.controls.useExistingAddress.value">
+                                <div class="form-group col-3">
+                                    <mat-form-field>
+                                        <mat-label>Country</mat-label>
+                                        <input matInput formControlName="country" placeholder="Ex. India" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-3">
+                                    <mat-form-field>
+                                        <mat-label>Pincode</mat-label>
+                                        <input matInput formControlName="pinCode" placeholder="Ex. 110006" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-3">
+                                    <mat-form-field>
+                                        <mat-label>Phone Number</mat-label>
+                                        <input matInput formControlName="phone" placeholder="Ex. 9384332223" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-3">
+                                    <mat-form-field>
+                                        <mat-label>Email Id</mat-label>
+                                        <input matInput formControlName="email" placeholder="Ex. a.b@c" required>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div>
+                                <button mat-mini-fab color="accent" matStepperPrevious>Back</button>
+                                <button mat-fab color="accent" matStepperNext>Next</button>
+                            </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    <p>You are now done.</p>
+                    <div>
+                        <button mat-mini-fab color="accent" matStepperPrevious>Back</button>
+                        <button mat-fab color="accent" (click)="stepper.reset()">Reset</button>
+                        <button mat-fab color="accent" (click)="onSubmit()">Submit</button>
                     </div>
-                </div>
-                <div class="col-12 row bg-white p-4 mt-2 shadow shadow-md rounded">
-                    <p class="font-weight-bold heading col-12 pl-0 ml-3 boldfont">Contact Details</p>
-                    <div class="form-group col-12 row">
-                        <div class="form-group col-12">
-                        <label for="desciption">Do you want to use existing address? </label>
-                        <input class="ml-2" type="radio" value="yes" formControlName="useExistingAddress">
-                        <label> Yes</label>
-                        <input class="ml-2" type="radio" value="no" formControlName="useExistingAddress">
-                        <label> No</label>
-                    </div>
-                    </div>
-                    <div *ngIf="postForm.controls.useExistingAddress.value == 'no'">
-                    <div class="form-group col-12 row" >
-                        <div class="form-group col-4">
-                            <label for="address1">Address line 1</label>
-                            <input type="text" name="address1" id="address1" class="form-control"
-                                formControlName="address1">
-                        </div>
-                        <div class="form-group col-4">
-                            <label for="address2">Address line 2</label>
-                            <input type="text" name="address2" id="address2" class="form-control"
-                                formControlName="address2">
-                        </div>
-                        <div class="form-group col-4">
-                            <label for="address3">Address line 3</label>
-                            <input type="text" name="address3" id="address3" class="form-control"
-                                formControlName="address3">
-                        </div>
-                    </div>
-                    <div class="form-group col-12 row" >
-                        <div class="form-group col-3">
-                            <label for="city">City</label>
-                            <input type="text" name="city" id="city" class="form-control"
-                                formControlName="city">
-                        </div>
-                        <div class="form-group col-3">
-                            <label for="state">State</label>
-                            <input type="text" name="state" id="state" class="form-control"
-                                formControlName="state">
-                        </div>
-                        <div class="form-group col-3">
-                            <label for="country">Country</label>
-                            <input type="text" name="country" id="country" class="form-control"
-                                formControlName="country">
-                        </div>
-                        <div class="form-group col-3">
-                            <label for="pinCode">Pin Code</label>
-                            <input type="text" name="pinCode" id="pinCode" class="form-control"  (keypress)="restrictAlphabets($event)"
-                                formControlName="pinCode" maxlength="6">
-                        </div>
-                    </div>
-                    <div class="form-group col-12 row">
-                        <div class="form-group col-3">
-                            <label for="phone">Mobile Number</label>
-                            <input type="text" name="phone" id="phone" class="form-control"
-                                formControlName="phone">
-                        </div>
-                        <div class="form-group col-3">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" class="form-control"
-                                formControlName="email">
-                        </div>
-                        
-                    </div>
-                </div>
-                    <div class="form-group col-12">
-                        <button class="btn btn-primary" style="margin-top: 10px;" (click)="onSubmit()">Add Post</button>
-                    </div>
-                </div>
+                </mat-step>
+            </mat-vertical-stepper>
 
-
-            </form>
         </div>
     </div>
     <div class="col-2"></div>

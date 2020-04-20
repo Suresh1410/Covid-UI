@@ -1,22 +1,4 @@
 
-body {
-    font-family: 'Montserrat';
-    font-style: Italic;
-    background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding:20px;
-  }
-
-  /* Responsive layout - makes a two column-layout instead of four columns */
-  @media (max-width: 800px) {
-    .column {
-      flex: 46%;
-      max-width: 46%;
-    }
-  }
   
   .card {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);

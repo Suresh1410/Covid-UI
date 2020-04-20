@@ -12,9 +12,15 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponentComponent } from './register-component/register-component.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input'
+import {MatInputModule} from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatInputModule ,
     RouterModule,
     ReactiveFormsModule,NgbModule,
-    FormsModule
+    FormsModule,MatSelectModule,MatNativeDateModule,
+    MatStepperModule, MatButtonModule,MatDatepickerModule,MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
-label{
-    font-weight: 700!important
+.extra-width{
+width:270px;
 }
-
-.boldfont{
-    font-size: x-large;
-    color: #001fff
-}
+.extra-width-double{
+    width:370px;
+    }
