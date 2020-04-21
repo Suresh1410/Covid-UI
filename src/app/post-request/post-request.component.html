@@ -19,20 +19,33 @@
                             <input matInput placeholder="Ex. milk" formControlName="subType" required>
                         </mat-form-field>
                         <mat-form-field class="m-3">
+                            <mat-label>Quantity</mat-label>
+                            <input matInput placeholder="Ex. 5" formControlName="quantity" required>
+                        </mat-form-field>
+                        <mat-form-field >
                             <mat-label>Start Date</mat-label>
                             <input matInput [matDatepicker]="picker1" formControlName="requestDate"
                                 placeholder="mm/dd/yyyy format" required (keypress)="restrictAlphabetsAndSlash($event)">
                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
                         </mat-form-field>
-                        <mat-form-field class="m-3">
+                        <mat-form-field >
                             <mat-label>End Date</mat-label>
                             <input matInput [matDatepicker]="picker2" formControlName="endDate"
                                 placeholder="mm/dd/yyyy format" required (keypress)="restrictAlphabetsAndSlash($event)">
                             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                             <mat-datepicker #picker2></mat-datepicker>
                         </mat-form-field>
-                        <mat-form-field class="extra-width">
+                        <mat-form-field  class="m-3">
+                            <mat-label>Recurring</mat-label>
+                            <mat-select placeholder="select" formControlName="recurring" required>
+                                <mat-option selected value="Once">Once</mat-option>
+                                <mat-option selected value="Weekly">Weekly</mat-option>
+                                <mat-option selected value="Monthly">Monthly</mat-option>
+                                <mat-option selected value="Yearly">Yearly</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="extra-width-double">
                             <mat-label>Description</mat-label>
                             <textarea matInput placeholder="Ex. I needs 5 ltrs of milk.." formControlName="description"
                                 required></textarea>
@@ -54,11 +67,25 @@
                             </div>
                         </div>
                         <div class="form-group col-12 row" *ngIf="!addressDetails.controls.useExistingAddress.value">
-                            <div class="form-group col-6">
-                                <mat-form-field class="extra-width-double">
-                                    <mat-label>Address</mat-label>
-                                    <textarea matInput placeholder="Ex.  Netaji Subhash Marg, Lal Qila..."
-                                        formControlName="address" required></textarea>
+                            <div class="form-group col-3">
+                                <mat-form-field>
+                                    <mat-label>Address Line 1</mat-label>
+                                    <input matInput placeholder="Door no,Apartment name"
+                                        formControlName="address1" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-3">
+                                <mat-form-field >
+                                    <mat-label>Address Line 2</mat-label>
+                                    <input matInput placeholder="Street name"
+                                        formControlName="address2" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-3">
+                                <mat-form-field >
+                                    <mat-label>Address Line 3</mat-label>
+                                    <input matInput placeholder="Landmark(Optional)"
+                                        formControlName="address3" >
                                 </mat-form-field>
                             </div>
                             <div class="form-group col-3">
@@ -67,15 +94,16 @@
                                     <input matInput formControlName="city" placeholder="Ex. New Delhi" required>
                                 </mat-form-field>
                             </div>
-                            <div class="form-group col-3">
-                                <mat-form-field>
-                                    <mat-label>State</mat-label>
-                                    <input matInput formControlName="state" placeholder="Ex. New Delhi" required>
-                                </mat-form-field>
-                            </div>
+                            
                         </div>
                             <div class="form-group col-12 row"
                                 *ngIf="!addressDetails.controls.useExistingAddress.value">
+                                <div class="form-group col-3">
+                                    <mat-form-field>
+                                        <mat-label>State</mat-label>
+                                        <input matInput formControlName="state" placeholder="Ex. New Delhi" required>
+                                    </mat-form-field>
+                                </div>
                                 <div class="form-group col-3">
                                     <mat-form-field>
                                         <mat-label>Country</mat-label>
@@ -88,12 +116,12 @@
                                         <input matInput formControlName="pinCode" placeholder="Ex. 110006" required>
                                     </mat-form-field>
                                 </div>
-                                <div class="form-group col-3">
+                                <!-- <div class="form-group col-3">
                                     <mat-form-field>
                                         <mat-label>Phone Number</mat-label>
                                         <input matInput formControlName="phone" placeholder="Ex. 9384332223" required>
                                     </mat-form-field>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-3">
                                     <mat-form-field>
                                         <mat-label>Email Id</mat-label>

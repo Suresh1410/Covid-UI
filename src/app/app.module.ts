@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatInputModule ,
     RouterModule,
     ReactiveFormsModule,NgbModule,
-    FormsModule,MatSelectModule,MatNativeDateModule,
+    FormsModule,MatSelectModule,MatNativeDateModule,HttpClientModule,
     MatStepperModule, MatButtonModule,MatDatepickerModule,MatSlideToggleModule
   ],
   providers: [],
