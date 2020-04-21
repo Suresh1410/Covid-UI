@@ -1,6 +1,9 @@
 .extra-width{
-width:270px;
-}
-.extra-width-double{
-    width:370px;
+    width:200px;
+    }
+    button{
+        margin: 6px;
+    }
+    .margin-13{
+        margin-right: 13px;
     }

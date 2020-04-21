@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
 import { CommonService } from '../common.service';
-
+import { PopupComponentComponent } from '../popup-component/popup-component.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   otherPostDetails:PostDetails[] = [];
   postDetailsArray: PostDetails[] = []
 
-  constructor(private fb: FormBuilder,private commonService:CommonService) {
+  constructor(private fb: FormBuilder,private commonService:CommonService,private _modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -44,6 +45,10 @@ export class HomeComponent implements OnInit {
       console.log("Other => "+ this.otherPostDetails.length)
       
 
+  }
+
+  openDonationForm(){
+    let modalRef = this._modalService.open(PopupComponentComponent);
   }
 
  
