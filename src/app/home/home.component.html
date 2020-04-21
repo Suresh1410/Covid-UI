@@ -1,211 +1,219 @@
-<div class="col-12 row ">
-        <div class="col-1"></div>
-        <div class="col-12 row pt-5 m-auto" style="max-width: 95%;background-image: url(assets/bg/covid.jpg);">
-                <div class="col-12">
-                        <div class="card-deck ">
-                                <div class="card ">
-                                        <img class="card-img-top" src="./assets/bg/foods.png" />
-                                        <div class="card-body">
-                                                <h5 class="card-title">Food</h5>
-                                                <form class="search-form mb-3">
-                                                        <input type="text" placeholder="Search by name">
-                                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                                    </form>
-                                                <div class=" bg-white shadow shadow-md rounded mb-1" *ngFor="let post of foodPostDetails">
-                                                        <mat-expansion-panel  >
-                                                                <mat-expansion-panel-header>
-                                                                        <mat-panel-title>
-                                                                                <div class="case-text">
-                                                                                        <h6>
-                                                                                                {{post.postDesc}}
-                                                                                        </h6>
+<div class="container">
+        <div class="row">
+                <div class="col-xl-4 col-lg-5 col-md-6">
+                        <div class="card">
+                                <img class="card-img-top img-height" src="./assets/bg/food1.jpg" />
+                                <div class="card-body">
+                                        <h5 class="card-title">Food</h5>
+                                        <form class="search-form mb-3">
+                                                <input type="text" placeholder="Search by name">
+                                                <button type="submit"><i class="fa fa-search"></i></button>
+                                        </form>
+                                        <div class=" bg-white shadow shadow-md rounded mb-1"
+                                                *ngFor="let post of foodPostDetails">
+                                                <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                                <mat-panel-title>
+                                                                        <div class="case-text">
+                                                                                <h6>
+                                                                                        {{post.postDesc}}
+                                                                                </h6>
 
-                                                                                </div>
-                                                                        </mat-panel-title>
-                                                                </mat-expansion-panel-header>
-                                                                <div class="name-design">
-                                                                        <span>Kishore</span>
-                                                                </div>
-                                                                <div
-                                                                        class="single-skill d-flex align-items-center justify-content-between">
-                                                                        <div class="bar-title  mb-15">
-                                                                                <h5><i class="fa fa-gift"></i>5<span class="raise m-1">Raise
-                                                                                                <br> of</span> <span
-                                                                                                class="used-count m-1"><i class="fa fa-gift"></i>{{post.quantity}}</span>
-                                                                                </h5>
                                                                         </div>
-                                                                        <circle-progress [percent]="25" [radius]="50"
-                                                                                [outerStrokeWidth]="8"
-                                                                                [innerStrokeWidth]="5"
-                                                                                [outerStrokeColor]="'#78C000'"
-                                                                                [innerStrokeColor]="'#C7E596'"
-                                                                                [animation]="true"
-                                                                                [animationDuration]="300">
-                                                                        </circle-progress>
+                                                                </mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="name-design">
+                                                                <span>Kishore</span>
+                                                        </div>
+                                                        <div
+                                                                class="single-skill d-flex align-items-center justify-content-between">
+                                                                <div class="bar-title  mb-15">
+                                                                        <h5><i class="fa fa-gift"></i>5<span
+                                                                                        class="raise m-1">Raise
+                                                                                        <br> of</span> <span
+                                                                                        class="used-count m-1"><i
+                                                                                                class="fa fa-gift"></i>{{post.quantity}}</span>
+                                                                        </h5>
                                                                 </div>
-                                                                <div class="case-info">
-                                                                        <p>{{post.postDesc}}</p>
-                                                                        <ul class="list-group">
-                                                                                
-                                                                                <li
-                                                                                        class="list-group-item list-group-item-success">
-                                                                                        <i class="fa fa-map-marker"
-                                                                                                style="font-size:20px;"></i>
-                                                                                        {{post.city}}</li>
-                                                                                <li
-                                                                                        class="list-group-item list-group-item-success">
-                                                                                        <i class="fa fa-clock-o"
-                                                                                                style="font-size:20px;"></i>
-                                                                                        Duration</li>
-                                                                                
-                                                                        </ul>
-                                                                        <div class="b-button">
-                                                                            <a href="#"><span>Donate Now</span> <i class="fa fa-long-arrow-right ml-1"></i></a>
-                                                                        </div>
-                                                                    </div>
+                                                                <circle-progress [percent]="25" [radius]="50"
+                                                                        [outerStrokeWidth]="8" [innerStrokeWidth]="5"
+                                                                        [outerStrokeColor]="'#78C000'"
+                                                                        [innerStrokeColor]="'#C7E596'"
+                                                                        [animation]="true" [animationDuration]="300">
+                                                                </circle-progress>
+                                                        </div>
+                                                        <div class="case-info">
+                                                                <p>{{post.postDesc}}</p>
+                                                                <ul class="list-group">
 
-                                                        </mat-expansion-panel>
-                                                </div>
-                                                
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-map-marker"
+                                                                                        style="font-size:20px;"></i>
+                                                                                {{post.city}}</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-clock-o"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Duration</li>
+
+                                                                </ul>
+                                                                <div class="b-button">
+                                                                        <a (click)="openDonationForm()"><span>Donate Now</span> <i
+                                                                                        class="fa fa-long-arrow-right ml-1"></i></a>
+                                                                </div>
+                                                        </div>
+
+                                                </mat-expansion-panel>
                                         </div>
 
                                 </div>
-                                <div class="card">
-                                        <img class="card-img-top" src="./assets/bg/clothes.jpg" />
-                                        <div class="card-body">
-                                                <h5 class="card-title">Clothes</h5>
-                                                <form class="search-form mb-3">
-                                                        <input type="text" placeholder="Search by name">
-                                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                                    </form>
-                                                <div class=" bg-white shadow shadow-md rounded mb-1" *ngFor="let post of clothesPostDetails">
-                                                        <mat-expansion-panel  >
-                                                                <mat-expansion-panel-header>
-                                                                        <mat-panel-title>
-                                                                                <div class="case-text">
-                                                                                        <h6>
-                                                                                                {{post.postDesc}}
-                                                                                        </h6>
 
-                                                                                </div>
-                                                                        </mat-panel-title>
-                                                                </mat-expansion-panel-header>
-                                                                <div class="name-design">
-                                                                        <span>Shreya Garg</span>
-                                                                </div>
-                                                                <div
-                                                                        class="single-skill d-flex align-items-center justify-content-between">
-                                                                        <div class="bar-title  mb-15">
-                                                                                <h5><i class="fa fa-gift"></i>5<span class="raise m-1">Raise
-                                                                                                <br> of</span> <span
-                                                                                                class="used-count m-1"><i class="fa fa-gift"></i>{{post.quantity}}</span>
-                                                                                </h5>
+                        </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 col-md-6 ">
+                        <div class="card">
+                                <img class="card-img-top img-height" src="./assets/bg/clothes.jpg" />
+                                <div class="card-body">
+                                        <h5 class="card-title">Clothes</h5>
+                                        <form class="search-form mb-3">
+                                                <input type="text" placeholder="Search by name">
+                                                <button type="submit"><i class="fa fa-search"></i></button>
+                                        </form>
+                                        <div class=" bg-white shadow shadow-md rounded mb-1"
+                                                *ngFor="let post of clothesPostDetails">
+                                                <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                                <mat-panel-title>
+                                                                        <div class="case-text">
+                                                                                <h6>
+                                                                                        {{post.postDesc}}
+                                                                                </h6>
+
                                                                         </div>
-                                                                        <circle-progress [percent]="50" [radius]="50"
-                                                                                [outerStrokeWidth]="8"
-                                                                                [innerStrokeWidth]="5"
-                                                                                [outerStrokeColor]="'#78C000'"
-                                                                                [innerStrokeColor]="'#C7E596'"
-                                                                                [animation]="true"
-                                                                                [animationDuration]="300">
-                                                                        </circle-progress>
+                                                                </mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="name-design">
+                                                                <span>Shreya Garg</span>
+                                                        </div>
+                                                        <div
+                                                                class="single-skill d-flex align-items-center justify-content-between">
+                                                                <div class="bar-title  mb-15">
+                                                                        <h5><i class="fa fa-gift"></i>5<span
+                                                                                        class="raise m-1">Raise
+                                                                                        <br> of</span> <span
+                                                                                        class="used-count m-1"><i
+                                                                                                class="fa fa-gift"></i>{{post.quantity}}</span>
+                                                                        </h5>
                                                                 </div>
-                                                                <div class="case-info">
-                                                                        <p>{{post.postDesc}}</p>
-                                                                        <ul class="list-group">
-                                                                                
-                                                                                <li
-                                                                                        class="list-group-item list-group-item-success">
-                                                                                        <i class="fa fa-map-marker"
-                                                                                                style="font-size:20px;"></i>
-                                                                                        {{post.addLine1}},{{post.addLine2}}</li>
-                                                                                <li
-                                                                                        class="list-group-item list-group-item-success">
-                                                                                        <i class="fa fa-clock-o"
-                                                                                                style="font-size:20px;"></i>
-                                                                                        Duration</li>
-                                                                                
-                                                                        </ul>
-                                                                        <div class="b-button">
-                                                                            <a href="#"><span>Donate Now</span> <i class="fa fa-long-arrow-right ml-1"></i></a>
-                                                                        </div>
-                                                                    </div>
+                                                                <circle-progress [percent]="50" [radius]="50"
+                                                                        [outerStrokeWidth]="8" [innerStrokeWidth]="5"
+                                                                        [outerStrokeColor]="'#78C000'"
+                                                                        [innerStrokeColor]="'#C7E596'"
+                                                                        [animation]="true" [animationDuration]="300">
+                                                                </circle-progress>
+                                                        </div>
+                                                        <div class="case-info">
+                                                                <p>{{post.postDesc}}</p>
+                                                                <ul class="list-group">
 
-                                                        </mat-expansion-panel>
-                                                </div>
-                                                
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-map-marker"
+                                                                                        style="font-size:20px;"></i>
+                                                                                {{post.addLine1}},{{post.addLine2}}</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-clock-o"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Duration</li>
 
+                                                                </ul>
+                                                                <div class="b-button">
+                                                                        <a (click)="openDonationForm()"><span>Donate Now</span> <i
+                                                                                        class="fa fa-long-arrow-right ml-1"></i></a>
+                                                                </div>
+                                                        </div>
+
+                                                </mat-expansion-panel>
                                         </div>
-                                </div>
-                                <div class="card">
-                                        <img class="card-img-top" src="./assets/bg/others.jpg" />
-                                        <div class="card-body">
-                                                <h5 class="card-title">Others</h5>
-                                                <form class="search-form mb-3">
-                                                        <input type="text" placeholder="Search by name">
-                                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                                    </form>
-                                                <div class=" bg-white shadow shadow-md rounded mb-1" *ngFor="let post of otherPostDetails">
-                                                        <mat-expansion-panel  >
-                                                                <mat-expansion-panel-header>
-                                                                        <mat-panel-title>
-                                                                                <div class="case-text">
-                                                                                        <h6>
-                                                                                                {{post.postDesc}}
-                                                                                        </h6>
 
-                                                                                </div>
-                                                                        </mat-panel-title>
-                                                                </mat-expansion-panel-header>
-                                                                <div class="name-design">
-                                                                        <span>Suresh</span>
-                                                                </div>
-                                                                <div
-                                                                        class="single-skill d-flex align-items-center justify-content-between">
-                                                                        <div class="bar-title  mb-15">
-                                                                                <h5><i class="fa fa-gift"></i>7<span class="raise m-1">Raise
-                                                                                                <br> of</span> <span
-                                                                                                class="used-count m-1"><i class="fa fa-gift"></i>{{post.quantity}}</span>
-                                                                                </h5>
-                                                                        </div>
-                                                                        <circle-progress [percent]="70" [radius]="50"
-                                                                                [outerStrokeWidth]="8"
-                                                                                [innerStrokeWidth]="5"
-                                                                                [outerStrokeColor]="'#78C000'"
-                                                                                [innerStrokeColor]="'#C7E596'"
-                                                                                [animation]="true"
-                                                                                [animationDuration]="300">
-                                                                        </circle-progress>
-                                                                </div>
-                                                                <div class="case-info">
-                                                                        <p>{{post.postDesc}}</p>
-                                                                        <ul class="list-group">
-                                                                                
-                                                                                <li
-                                                                                        class="list-group-item list-group-item-success">
-                                                                                        <i class="fa fa-map-marker"
-                                                                                                style="font-size:20px;"></i>
-                                                                                        {{post.addLine1}},{{post.addLine2}}</li>
-                                                                                <li
-                                                                                        class="list-group-item list-group-item-success">
-                                                                                        <i class="fa fa-clock-o"
-                                                                                                style="font-size:20px;"></i>
-                                                                                        Duration</li>
-                                                                                
-                                                                        </ul>
-                                                                        <div class="b-button">
-                                                                            <a href="#"><span>Donate Now</span> <i class="fa fa-long-arrow-right ml-1"></i></a>
-                                                                        </div>
-                                                                    </div>
-
-                                                        </mat-expansion-panel>
-                                                </div>
-                                              
-
-                                        </div>
 
                                 </div>
                         </div>
                 </div>
+                <div class="col-xl-4 col-lg-5 col-md-6 ">
+                        <div class="card">
+                                <img class="card-img-top img-height" src="./assets/bg/others.jpg" />
+                                <div class="card-body">
+                                        <h5 class="card-title">Others</h5>
+                                        <form class="search-form mb-3">
+                                                <input type="text" placeholder="Search by name">
+                                                <button type="submit"><i class="fa fa-search"></i></button>
+                                        </form>
+                                        <div class=" bg-white shadow shadow-md rounded mb-1"
+                                                *ngFor="let post of otherPostDetails">
+                                                <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                                <mat-panel-title>
+                                                                        <div class="case-text">
+                                                                                <h6>
+                                                                                        {{post.postDesc}}
+                                                                                </h6>
+
+                                                                        </div>
+                                                                </mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="name-design">
+                                                                <span>Suresh</span>
+                                                        </div>
+                                                        <div
+                                                                class="single-skill d-flex align-items-center justify-content-between">
+                                                                <div class="bar-title  mb-15">
+                                                                        <h5><i class="fa fa-gift"></i>7<span
+                                                                                        class="raise m-1">Raise
+                                                                                        <br> of</span> <span
+                                                                                        class="used-count m-1"><i
+                                                                                                class="fa fa-gift"></i>{{post.quantity}}</span>
+                                                                        </h5>
+                                                                </div>
+                                                                <circle-progress [percent]="70" [radius]="50"
+                                                                        [outerStrokeWidth]="8" [innerStrokeWidth]="5"
+                                                                        [outerStrokeColor]="'#78C000'"
+                                                                        [innerStrokeColor]="'#C7E596'"
+                                                                        [animation]="true" [animationDuration]="300">
+                                                                </circle-progress>
+                                                        </div>
+                                                        <div class="case-info">
+                                                                <p>{{post.postDesc}}</p>
+                                                                <ul class="list-group">
+
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-map-marker"
+                                                                                        style="font-size:20px;"></i>
+                                                                                {{post.addLine1}},{{post.addLine2}}</li>
+                                                                        <li
+                                                                                class="list-group-item list-group-item-success">
+                                                                                <i class="fa fa-clock-o"
+                                                                                        style="font-size:20px;"></i>
+                                                                                Duration</li>
+
+                                                                </ul>
+                                                                <div class="b-button">
+                                                                        <a (click)="openDonationForm()"><span>Donate Now</span> <i
+                                                                                        class="fa fa-long-arrow-right ml-1"></i></a>
+                                                                </div>
+                                                        </div>
+
+                                                </mat-expansion-panel>
+                                        </div>
+
+
+                                </div>
+
+                        </div>
+                </div>
         </div>
 </div>
+

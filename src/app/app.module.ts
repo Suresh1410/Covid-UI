@@ -22,6 +22,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
+import { PopupComponentComponent } from './popup-component/popup-component.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     PostRequestComponent,
     HeaderComponent,
     HomeComponent,
-    RegisterComponentComponent
+    RegisterComponentComponent,
+    PopupComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,MatSelectModule,MatNativeDateModule,HttpClientModule,
     MatStepperModule, MatButtonModule,MatDatepickerModule,MatSlideToggleModule
   ],
+  entryComponents: [PopupComponentComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
