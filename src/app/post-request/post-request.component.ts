@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 import { ThemePalette } from '@angular/material/core';
 import { CommonService } from '../common.service';
+import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-post-request',
@@ -28,7 +30,8 @@ requirementDetails: FormGroup;
   disabled = false;
 
   constructor(private _formBuilder: FormBuilder,
-  private commonService:CommonService) {}
+  private commonService:CommonService,
+  private router:Router) {}
 
   ngOnInit() {
     this.createForm();
@@ -73,18 +76,19 @@ restrictAlphabetsAndSlash(event) {
   return pattern.test(event.key);
 }
 onSubmit(){
+
   let request = {
 "postDesc" : this.requirementDetails.controls.description.value,
-"postCreateDate" : "43939",
-"postRequestDate" : "43941",
-"postEndDate" : "43946",
+"postCreateDate" : new Date().toJSON(),
+"postRequestDate" : new Date(this.requirementDetails.controls.requestDate.value).toJSON(),
+"postEndDate" : new Date(this.requirementDetails.controls.endDate.value).toJSON(),
 "type" : this.requirementDetails.controls.type.value ?this.requirementDetails.controls.type.value :"" ,
 "subType" : this.requirementDetails.controls.subType.value,
 "quantity" : this.requirementDetails.controls.quantity.value,
 "recurring" :  this.requirementDetails.controls.recurring.value,
 
 "isRegisteredAddress" : this.addressDetails.controls.useExistingAddress.value+"",
-
+"phone" : this.addressDetails.controls.phone.value,
 "mailId" : this.addressDetails.controls.email.value,
 "addLine1" : this.addressDetails.controls.address1.value,
 "addLine2" :this.addressDetails.controls.address2.value,
@@ -98,13 +102,13 @@ onSubmit(){
 "addressId" : "",
 "addressType" : "1",
 "addressLabel" : "test",
-"userId" : "1",
+"userId" : this.commonService.loggedInUser?this.commonService.loggedInUser.userId : "",
 "status" : "2",
-
-
   }
+
   this.commonService.addNewPost(request).subscribe((res)=>{
     console.log(res);
+    this.router.navigateByUrl("/home");
   });
 
 }

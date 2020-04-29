@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { CommonService } from '../common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -9,7 +11,9 @@ import { FormBuilder } from '@angular/forms';
 export class LoginComponentComponent implements OnInit {
   loginForm: any;
   showPass = 0;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private commonService:CommonService,
+    private router: Router ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -35,21 +39,39 @@ export class LoginComponentComponent implements OnInit {
       password: ''
     });
   }
-  validateEmailAndPassword(event) {
-    let pattern = (/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/);
-    let emailId = this.loginForm.controls.emailId.value;
+  validatePassword(event) {
     let password = this.loginForm.controls.password.value;
-    if (!pattern.test(emailId) || emailId === null || emailId === '') {
-      document.getElementById('emailValidator').className = "wrap-input100 validate-input alert-validate";
-    } else {
-      document.getElementById('emailValidator').className = "wrap-input100 validate-input";
-    }
     if (password === null || password === '') {
       document.getElementById('passValidator').className = "wrap-input100 validate-input alert-validate";
     } else {
       document.getElementById('passValidator').className = "wrap-input100 validate-input";
     }
 
+
+  }
+  validateEmail(event) {
+    let pattern = (/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/);
+    let emailId = this.loginForm.controls.emailId.value;
+    if (!pattern.test(emailId) || emailId === null || emailId === '') {
+      document.getElementById('emailValidator').className = "wrap-input100 validate-input alert-validate";
+    } else {
+      document.getElementById('emailValidator').className = "wrap-input100 validate-input";
+    }
+
+  }
+
+  checkCredentials(){
+    let request ={
+      email : this.loginForm.controls.emailId.value,
+      password: this.loginForm.controls.password.value
+    }
+    this.commonService.checkLogin(request).subscribe( (res)=> {
+      this.commonService.loggedInUser=res;
+      this.router.navigateByUrl("/home");
+      
+    }, err => {
+      console.log("Un authourized")
+    } );
 
   }
 

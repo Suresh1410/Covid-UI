@@ -9,5 +9,14 @@
 </head>
 <body>
   <app-root></app-root>
+  <script src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js"></script>
+  <script>
+    window.loadWatsonAssistantChat({
+      integrationID: "1454def5-1f55-4ec6-9f01-febde341c1b8", // The ID of this integration.
+      region: "eu-gb" // The region your integration is hosted in.
+    }).then(function(instance){
+      instance.render();
+    });
+  </script>
 </body>
 </html>

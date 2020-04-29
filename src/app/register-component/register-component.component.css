@@ -72,6 +72,10 @@ textarea {
   border: none;
 }
 
+.error{
+color: #c80000;
+}
+
 textarea:focus, input:focus {
   border-color: transparent !important;
 }

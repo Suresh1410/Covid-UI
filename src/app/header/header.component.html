@@ -7,14 +7,14 @@
 						<i class="align-middle mr-2 fa fa-home"></i> <span class="align-middle">Home</span>
 					</a>
 				</li>
-				<li class="sidebar-item">
+				<li class="sidebar-item"  *ngIf="commonService.loggedInUser">
 					<a class="sidebar-link" href="/request" routerLink="request" routerLinkActive="custom-active-bg">
 						<i class="align-middle mr-2 fa fa-gift"  style="color: red"></i> <span class="align-middle">Donation Request</span>
 					</a>
 				</li>
-				<li class="sidebar-item">
-					<a class="sidebar-link" href="/myDonations" routerLink="home" routerLinkActive="custom-active-bg">
-						<i class="align-middle mr-2 fa fa-gift"></i> <span class="align-middle">My Donations</span>
+				<li class="sidebar-item" *ngIf="commonService.loggedInUser">
+					<a class="sidebar-link" href="/myPost" routerLink="myPost" routerLinkActive="custom-active-bg">
+						<i class="align-middle mr-2 fa fa-list"></i> <span class="align-middle">My Requests</span>
 					</a>
 				</li>
 				
@@ -32,7 +32,9 @@
 			</div>
 			<div class="text-shadow " style="color: white;text-align:center;
 							margin-top: 7px;">
-				<div class="font-weight-bold"><i class="fa fa-user" style="color: #ffc226;" aria-hidden="true"></i> <a class="ml-1" href="/login" routerLink="login" routerLinkActive="custom-active-bg">Login</a>
+				<div *ngIf="!commonService.loggedInUser" class="font-weight-bold"> <a class="ml-1" href="/login" routerLink="login" routerLinkActive="custom-active-bg">Login</a>
+				</div>
+				<div *ngIf="commonService.loggedInUser" class="font-weight-bold"><i class="fa fa-user" style="color: #ffc226;" aria-hidden="true"></i> {{commonService.loggedInUser.userName}}
 				</div>
 			</div>
 

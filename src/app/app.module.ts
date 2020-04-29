@@ -23,6 +23,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupComponentComponent } from './popup-component/popup-component.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MyPostComponent } from './myPost/myPost.component';
+import { DonatorDetailComponent } from './donator-detail/donator-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { PopupComponentComponent } from './popup-component/popup-component.compo
     HeaderComponent,
     HomeComponent,
     RegisterComponentComponent,
-    PopupComponentComponent
+    MyPostComponent,
+    PopupComponentComponent,
+    DonatorDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,7 @@ import { PopupComponentComponent } from './popup-component/popup-component.compo
     RouterModule,
     ReactiveFormsModule,NgbModule,
     FormsModule,MatSelectModule,MatNativeDateModule,HttpClientModule,
-    MatStepperModule, MatButtonModule,MatDatepickerModule,MatSlideToggleModule
+    MatStepperModule, MatButtonModule,MatDatepickerModule,MatSlideToggleModule,MatTooltipModule
   ],
   entryComponents: [PopupComponentComponent],
   providers: [],

@@ -4,6 +4,7 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import { PostRequestComponent } from './post-request/post-request.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponentComponent } from './register-component/register-component.component';
+import { MyPostComponent } from './myPost/myPost.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'request', component: PostRequestComponent},
   {path: 'login', component: LoginComponentComponent},
   {path: 'register', component: RegisterComponentComponent},
+  {path: 'myPost', component: MyPostComponent},  
   {path: '', redirectTo:'home', pathMatch: 'full'},
   {path: '**', component: HomeComponent}
 ];

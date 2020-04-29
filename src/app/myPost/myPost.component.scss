@@ -1,0 +1,160 @@
+table {
+    width: 100% !important;
+    float: right;
+    margin: 0 0 20px 20px;
+    border-radius: 10px;
+}
+th {
+    background: #333;
+    color: white;
+    
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+td{
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+}
+
+  
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding:0;
+    margin-top:35px;
+    margin-bottom: 30px;
+  }
+  .card-title {
+    font-weight:bold;
+    text-align: center;
+  }
+  .card-text {
+    text-align: justify;
+  }
+  .img-height{
+    height: 220px;
+  }
+  
+
+  .case-text{
+    margin-bottom: 0;
+    letter-spacing: -.5px;
+    color: inherit;
+    cursor: pointer;
+    transition: .3s;
+&:hover{
+    color:#fd7e14;
+}
+  }
+  
+  .case-text{
+    margin-bottom: 0;
+    letter-spacing: -.5px;
+    color: inherit;
+    cursor: pointer;
+    transition: .3s;
+&:hover{
+    color:#fd7e14;
+}
+  }
+.name-design span {
+    color: #748188;
+    padding-left: 28px; 
+    position: relative; 
+    margin-top: -2px; 
+}
+.name-design span::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    height: 4px;
+    width: 21px;
+    background: #e25a44;
+    bottom: 7px;
+}
+.case-info p {
+    margin-bottom: 17px;
+    color: #748188;
+}
+.single-skill {
+    overflow: hidden;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+.raise {
+    color: #748188;
+}
+.bar-title h5 {
+    font-size: 18px;
+    margin-bottom: 0;
+    font-weight: 700;
+    line-height: 28px;
+}
+::selection {
+    background: #233f4d;
+    color: #ffffff;
+    text-shadow: none;
+}
+.used-count {
+    color: #e25a44;
+}
+.search-form {
+    position: relative;
+}
+.b-button a{
+    transition: .3s;
+    &:hover{
+        color:#fd7e14;
+    }
+    cursor:pointer
+}
+
+.search-form input::-moz-placeholder {
+    font-size: 14px;
+    color: #748188;
+    font-weight: 400;
+}
+.search-form input::placeholder {
+    font-size: 14px;
+    color: #748188;
+    font-weight: 400;
+}
+.search-form{
+    position: relative;
+    & input{
+        width: 100%;
+        height: 48px;
+        border: 0;
+        background: #f3f3f3;
+        padding: 0 20px;
+        font-size: 14px;
+        color: #748188;
+        font-weight: 400;
+    }
+    & button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            background: none;
+            padding: 0 25px;
+            color: #7a8a9e;
+            line-height: 50px;
+            border: 0;
+            font-weight: 400;
+            transition: .3s;
+            cursor: pointer;
+        &:hover{
+            color:#fd7e14;
+        }
+    }
+}
+
+.card-title a{
+    transform: rotate(45deg);
+    cursor: pointer;
+    font-size: 26px;
+    position: absolute;
+    right:21px;
+    top:15px;
+}
