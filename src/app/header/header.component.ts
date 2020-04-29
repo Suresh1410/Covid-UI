@@ -1,6 +1,7 @@
 import { Subscription } from '../../../node_modules/rxjs';
 
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor() { }
+  constructor(public commonService:CommonService) { }
 
   /**
   * Do onLoad of page functionality.  

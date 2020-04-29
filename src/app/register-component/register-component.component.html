@@ -6,36 +6,42 @@
                 <div class="container-login100">
                     <div class="wrap-login100">
                         <!-- <form class="login100-form "> -->
-                            <span class="login100-form-title p-b-26">
+                            <span class="login100-form-title p-b-26 pb-4">
                                 Create Account
                             </span>
+                            <div class=" pb-4">
+                            <span class="error ">{{this.errorMessage}}</span>
+                        </div>
                             <div  class="wrap-input100 validate-input" >
-                                <input id="name" class="input100" type="text" name="name" formControlName="name"  >
+                                <input id="name" class="input100 has-val" type="text" name="name" formControlName="name"  >
                                 <span class="focus-input100" data-placeholder="Name"></span>
                             </div>
                             <div  class="wrap-input100 validate-input" >
-                                <input id="phoneNo" class="input100" type="text" name="phoneNo" formControlName="phoneNo"  >
+                                <input id="phoneNo" class="input100 has-val" type="text" name="phoneNo" formControlName="phoneNo"  >
                                 <span class="focus-input100" data-placeholder="Phone Number"></span>
                             </div>
-                            <div  class="wrap-input100 validate-input" >
-                                <input id="address" class="input100" type="text" name="address" formControlName="address"  >
-                                <span class="focus-input100" data-placeholder="Address"></span>
-                            </div>
                             <div id="emailValidator" class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                                <input id="email" class="input100" type="text" name="email" formControlName="emailId"  >
+                                <input id="email" class="input100 has-val" type="text" name="email" formControlName="emailId"  >
                                 <span class="focus-input100" data-placeholder="Email"></span>
                             </div>
                             <div id="passValidator" class="wrap-input100 validate-input" data-validate="Enter password">
                                 <span class="btn-show-pass" (click)="changeVisibility($event)">
                                     <i id="eye" class="zmdi zmdi-eye"></i>
                                 </span>
-                                <input id="password" class="input100" type="password" name="pass" formControlName="password">
+                                <input id="password" class="input100 has-val" type="password" name="pass" formControlName="password">
                                 <span class="focus-input100" data-placeholder="Password"></span>
+                            </div>
+                            <div id="passValidator" class="wrap-input100 validate-input" data-validate="Enter password">
+                                <span class="btn-show-pass" (click)="changeVisibility($event)">
+                                    <i id="eye" class="zmdi zmdi-eye"></i>
+                                </span>
+                                <input id="confirmpassword" class="input100 has-val" type="password" name="pass" formControlName="confirmpassword">
+                                <span class="focus-input100" data-placeholder="Confirm Password"></span>
                             </div>
                             <div class="container-login100-form-btn">
                                 <div class="wrap-login100-form-btn">
                                     <div class="login100-form-bgbtn"></div>
-                                    <button class="login100-form-btn" (click)="validateEmailAndPassword($event)">
+                                    <button class="login100-form-btn" (click)="createUser()">
                                         Create Account
                                     </button>
                                 </div>

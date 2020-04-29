@@ -10,20 +10,20 @@
                                 Welcome
                             </span>
                             <div id="emailValidator" class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                                <input id="email" class="input100" type="text" name="email" formControlName="emailId"  >
+                                <input id="email" class="input100 has-val" type="text" name="email" formControlName="emailId"  (focusout)="validateEmail($event)">
                                 <span class="focus-input100" data-placeholder="Email"></span>
                             </div>
                             <div id="passValidator" class="wrap-input100 validate-input" data-validate="Enter password">
                                 <span class="btn-show-pass" (click)="changeVisibility($event)">
                                     <i id="eye" class="zmdi zmdi-eye"></i>
                                 </span>
-                                <input id="password" class="input100" type="password" name="pass" formControlName="password">
-                                <span class="focus-input100" data-placeholder="Password"></span>
+                                <input id="password" class="input100 has-val" type="password" name="pass" formControlName="password" (focusout)="validatePassword($event)">
+                                <span class="focus-input100" data-placeholder="Password" ></span>
                             </div>
                             <div class="container-login100-form-btn">
                                 <div class="wrap-login100-form-btn">
                                     <div class="login100-form-bgbtn"></div>
-                                    <button class="login100-form-btn" (click)="validateEmailAndPassword($event)">
+                                    <button class="login100-form-btn" (click)="checkCredentials()">
                                         Login
                                     </button>
                                 </div>
